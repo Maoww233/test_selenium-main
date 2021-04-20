@@ -13,6 +13,7 @@ class BasePage:
         if _base_driver == None:
             # 实例化 driver
             self.driver = webdriver.Chrome()
+            self.driver.maximize_window()
             # 访问扫码登录页面
             self.driver.get("https://work.weixin.qq.com/wework_admin/loginpage_wx?")
             with open("cookie.yaml", encoding="UTF-8") as f:
