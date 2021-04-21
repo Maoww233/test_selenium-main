@@ -23,6 +23,7 @@ class TestAddDepartment:
         添加部门测试用例
         :return:
         '''
-        Rdepartment = self.main_page.goto_contact().goto_add_department().add_department(department).get_contact_departmentlist()
+
+        Rdepartment = self.main_page.goto_contact().goto_add_department().add_department(department).get_contact_departmentlist(department[0])
         print(Rdepartment)
         assert department == Rdepartment

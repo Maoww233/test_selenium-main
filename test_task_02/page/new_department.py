@@ -12,19 +12,21 @@ from test_task_02.page.base_page import BasePage
 #from test_task_02.page.contact import ContactPage
 
 
-
-
 class NewDepartment(BasePage):
+
+
+    __department_name = '//*[@id="__dialog__MNDialog__"]/div/div[2]/div/form/div[1]/input'
+    __affiliation_department ='.js_parent_party_name'
+    __affiliation_department_two = '.ww_dialog_body [id="1688852014214296_anchor"]'
+    __buthon_text = '确定'
 
     def add_department(self,department):
 
-        #self.driver.switch_to.frame("__dialog__MNDialog__")
-        #self.driver.find_element(By.CSS_SELECTOR, '..inputDlg_item:nth(0)>input').send_keys("学习2")
-        self.driver.find_element(By.XPATH,'//*[@id="__dialog__MNDialog__"]/div/div[2]/div/form/div[1]/input').send_keys(department)
-        self.driver.find_element(By.CSS_SELECTOR, '.js_parent_party_name').click()
-        #self.driver.find_element(By.ID, '1688852014214296_anchor').click()
-        #self.driver.find_element(By.XPATH,'//*[@id="1688852014214296_anchor"]').click()
-        self.driver.find_element(By.CSS_SELECTOR,'.ww_dialog_body [id="1688852014214296_anchor"]').click()
-        self.driver.find_element(By.LINK_TEXT,'确定').click()
+
+        self.driver.find_element(By.XPATH,self.__department_name).send_keys(department)
+        self.driver.find_element(By.CSS_SELECTOR,self.__affiliation_department).click()
+        self.driver.find_element(By.CSS_SELECTOR,self.__affiliation_department_two).click()
+        self.driver.find_element(By.LINK_TEXT,self.__buthon_text).click()
+
         from test_task_02.page.contact import ContactPage
         return ContactPage(self.driver)

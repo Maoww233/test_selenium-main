@@ -14,7 +14,8 @@ from test_task_02.page.new_department import NewDepartment
 class ContactPage(BasePage):
 
     __contact_list = ".member_colRight_memberTable_td:nth-child(5)"
-
+    __add_darpatment = ".member_colLeft_top_addBtn"
+    __add_darpat =".js_create_party"
 
     def get_contact_list(self):
 
@@ -33,14 +34,14 @@ class ContactPage(BasePage):
         :return:
         '''
 
-        self.driver.find_element(By.CSS_SELECTOR,'.member_colLeft_top_addBtn').click()
-        self.driver.find_element(By.CSS_SELECTOR,'.js_create_party').click()
+        self.driver.find_element(By.CSS_SELECTOR,self.__add_darpatment).click()
+        self.driver.find_element(By.CSS_SELECTOR,self.__add_darpat).click()
 
         return NewDepartment(self.driver)
 
-    def get_contact_departmentlist(self):
+    def get_contact_departmentlist(self,department):
 
-        departmentlist = self.driver.find_elements(By.LINK_TEXT,"测试组1")
+        departmentlist = self.driver.find_elements(By.LINK_TEXT,department)
         department_list = []
 
         for dle in list(departmentlist):
