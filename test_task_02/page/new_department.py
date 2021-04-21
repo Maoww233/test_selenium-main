@@ -12,16 +12,19 @@ from test_task_02.page.base_page import BasePage
 #from test_task_02.page.contact import ContactPage
 
 
+
+
 class NewDepartment(BasePage):
 
-    def add_department(self):
+    def add_department(self,department):
 
         #self.driver.switch_to.frame("__dialog__MNDialog__")
         #self.driver.find_element(By.CSS_SELECTOR, '..inputDlg_item:nth(0)>input').send_keys("学习2")
-        self.driver.find_element(By.XPATH,'//*[@id="__dialog__MNDialog__"]/div/div[2]/div/form/div[1]/input').send_keys("学习2")
+        self.driver.find_element(By.XPATH,'//*[@id="__dialog__MNDialog__"]/div/div[2]/div/form/div[1]/input').send_keys(department)
         self.driver.find_element(By.CSS_SELECTOR, '.js_parent_party_name').click()
         #self.driver.find_element(By.ID, '1688852014214296_anchor').click()
         #self.driver.find_element(By.XPATH,'//*[@id="1688852014214296_anchor"]').click()
         self.driver.find_element(By.CSS_SELECTOR,'.ww_dialog_body [id="1688852014214296_anchor"]').click()
         self.driver.find_element(By.LINK_TEXT,'确定').click()
-        #return ContactPage(self.driver)
+        from test_task_02.page.contact import ContactPage
+        return ContactPage(self.driver)

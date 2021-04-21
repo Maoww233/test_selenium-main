@@ -8,7 +8,11 @@
 import yaml
 
 '''
+mac 版本启动debug模式
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+Windows版本启动debug模式
+Chrome --remote-debugging-port=9222
+
 1.打开浏览器
 2.搜索内容
 3.直接等待time.sleep(1),每个操作都必须等待，造成浪费时间

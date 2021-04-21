@@ -11,10 +11,18 @@ import yaml
 
 class TestAddDepartment:
 
+
+    yaml_result = yaml.load(open("testcase.yaml", encoding="utf-8"), Loader=yaml.FullLoader)
     def setup_class(self):
 
         self.main_page = MainPage()
 
-    def test_add_department(self):
-
-        self.main_page.goto_contact().goto_add_department().add_department().goto_add_department()
+    @pytest.mark.parametrize("department", yaml_result["add_department"])
+    def test_add_department(self,department):
+        '''
+        添加部门测试用例
+        :return:
+        '''
+        Rdepartment = self.main_page.goto_contact().goto_add_department().add_department(department).get_contact_departmentlist()
+        print(Rdepartment)
+        assert department == Rdepartment
