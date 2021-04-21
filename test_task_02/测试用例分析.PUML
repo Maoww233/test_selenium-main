@@ -22,6 +22,7 @@ new_department -> contact:1.填写部门信息 \n 2.点击确定按钮
 
 new_department -> contact:1.填写部门信息 \n 2.点击取消按钮
 
+contact -> contact:获取部门列表信息
 
 
 @enduml

@@ -27,3 +27,4 @@ class TestAddDepartment:
         Rdepartment = self.main_page.goto_contact().goto_add_department().add_department(department).get_contact_departmentlist(department[0])
         print(Rdepartment)
         assert department == Rdepartment
+
